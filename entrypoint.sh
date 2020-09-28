@@ -32,6 +32,7 @@ help() {
 }
 
 build() {
+    print_bold "Building ..."
 
     if ! file_exists "docker-compose.yml"
     then
@@ -45,7 +46,6 @@ build() {
         cp app/.env.example app/.env
     fi
 
-    print_bold "Building ..."
     docker-compose build
     print_bold "Building Succesfull"
 }
