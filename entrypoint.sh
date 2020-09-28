@@ -64,19 +64,19 @@ restart() {
 }
 
 logs() {
-    docker logs -f thq3
+    docker logs -f thq3_api
 }
 
 artisan() {
-    docker exec thq3 php artisan $@
+    docker exec thq3_api php artisan $@
 }
 
 tinker() {
-    docker exec -it thq3 php artisan tinker
+    docker exec -it thq3_api php artisan tinker
 }
 
 composer() {
-    docker exec thq3 composer $@
+    docker exec thq3_api composer $@
 }
 
 clear() {
