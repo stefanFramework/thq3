@@ -46,6 +46,10 @@ build() {
         cp app/.env.example app/.env
     fi
 
+    mkdir -p app/storage/framework/cache
+    mkdir -p app/storage/framework/sessions
+    mkdir -p app/storage/framework/views
+
     docker-compose build
     print_bold "Building Succesfull"
 }
