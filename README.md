@@ -8,7 +8,11 @@ sh entrypoint.sh build
 ```
 sh entrypoint.sh start
 ```
-###  3. Run Api
+###  3. Update Composer
+```
+sh entrypoint.sh composer update --no-scripts
+```
+###  4. Run Api
 ```
 Base: http://localhost:7085
 GET /api/example
