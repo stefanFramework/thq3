@@ -13,7 +13,7 @@ class ServiceTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         DB::table($this->table)->insert([
-            'id' => 'logistics',
+            'id' => 'kaiju-backoffice',
             'name' => 'Logistics Service',
             'team' => 'Kaiju',
             'created_at' => Carbon::now(),
