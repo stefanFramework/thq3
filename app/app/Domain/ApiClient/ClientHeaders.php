@@ -34,6 +34,12 @@ final class ClientHeaders
         return $this;
     }
 
+    public function authorization(string $authorizationValue, ?string $key= 'Authorization'): self
+    {
+        $this->set($key, $authorizationValue);
+        return $this;
+    }
+
     public function __set(string $key, $value)
     {
         $this->headers[$key] = $value;

@@ -12,7 +12,7 @@ class StatusReportRepository implements  IStatusReportRepository
     public function findByServiceId($serviceId)
     {
         return StatusReport::where('service_id', '=', $serviceId)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc')->take(1)
             ->get();
     }
 }
