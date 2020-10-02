@@ -7,6 +7,7 @@ use App\Domain\Models\Service;
 use App\Domain\Repositories\Interfaces\IServiceRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 
 class ServiceController extends Controller
 {
@@ -19,32 +20,18 @@ class ServiceController extends Controller
     public function index()
     {
         $services = $this->serviceRepository->findAll();
-
-        $data = [
-            [
-                'id' => 'logistics',
-                'name' => 'Logistics Service',
-                'team' => 'Kaiju',
-                'version' => ''
-            ],
-            [
-                'id' => 'stock-service',
-                'name' => 'Stock Service',
-                'team' => 'Kraken',
-                'version' => ''
-            ]
-        ];
-
-        return response()->json($this->getData($services), 200);
+        $data = $this->getData($services);
+        return response()->json($data, 200);
     }
 
     private function getData(Collection $services)
     {
         return $services->map(function (Service $service) {
+            Log::info('jaja', ['s' => $service]);
             return [
                 'id' => $service->id,
                 'name' => $service->name,
-                'team' => $service->team,
+                'team' => strtolower($service->team),
                 'version' => ''
             ];
         })->toArray();
