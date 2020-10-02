@@ -10,4 +10,9 @@ Route::group(['namespace' => 'Api\Controllers'], function () {
         'as' => 'services',
         'uses' => 'ServiceController@index'
     ]);
+
+    Route::get('/status/{serviceId}', [
+        'as' => 'status',
+        'uses' => 'StatusController@update'
+    ]);
 });

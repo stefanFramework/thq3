@@ -12,5 +12,10 @@ class Service extends Model
 
     protected $table = 'services';
 
+    public function statusReport()
+    {
+        return $this->hasMany(StatusReport::class, 'service_id', 'id');
+    }
+
 }
 

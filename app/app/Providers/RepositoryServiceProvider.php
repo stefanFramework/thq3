@@ -2,17 +2,17 @@
 
 namespace App\Providers;
 
-use App\Domain\Repositories\PhoneLineRepository;
-use App\Domain\Repositories\RepositoryInterfaces\IPhoneLineRepository;
+use App\Domain\Repositories\Interfaces\IServiceRepository;
+use App\Domain\Repositories\ServiceRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        // $this->app->bind(
-        //     Interface::class,
-        //     ConcreteClass::class
-        // );
+        $this->app->bind(
+            IServiceRepository::class,
+            ServiceRepository::class
+        );
     }
 }
