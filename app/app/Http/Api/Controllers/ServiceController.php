@@ -7,7 +7,6 @@ use App\Domain\Models\Service;
 use App\Domain\Repositories\Interfaces\IServiceRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 
 class ServiceController extends Controller
 {
@@ -27,7 +26,6 @@ class ServiceController extends Controller
     private function getData(Collection $services)
     {
         return $services->map(function (Service $service) {
-            Log::info('jaja', ['s' => $service]);
             return [
                 'id' => $service->id,
                 'name' => $service->name,
