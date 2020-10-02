@@ -1,4 +1,5 @@
 # Application ignores
+.idea/*
 .vscode/
 *.bak
 .DS_Store
