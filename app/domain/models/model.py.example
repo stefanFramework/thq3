@@ -1,0 +1,10 @@
+from domain.models import BaseModel, db
+
+
+class Example(BaseModel):
+    __tablename__ = 'example_table'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    ip = db.Column(db.String, nullable=False)
+    notes = db.Column(db.Text, nullable=True)

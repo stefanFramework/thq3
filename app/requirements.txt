@@ -1,0 +1,8 @@
+Flask
+alembic
+Flask-RESTful
+Flask-SQLAlchemy-Session
+Flask-Script
+SQLAlchemy
+sqla-softdelete
+python-json-logger

@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  atlas-db:
+    image: mysql:5.7
+    container_name: atlas_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=atlas
+    volumes:
+      - ./db/data:/var/lib/mysql
+    ports:
+      - 5432:3306
+
+  atlas-api:
+    image: atlas_api
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: atlas_api
+    volumes:
+      - ./app:/app
+    ports:
+      - 4000:80
+    depends_on:
+      - atlas-db
+
